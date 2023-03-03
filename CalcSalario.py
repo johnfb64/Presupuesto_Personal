@@ -1,6 +1,7 @@
 import math
+SMLV = 1300000
 class CalcSalario:
-    SMLV = 1300000
+
     def __init__(self,sueldo):
         self._sueldo = sueldo
 
@@ -16,28 +17,31 @@ class CalcSalario:
 
 
     def calculaSalud(self):
-        salud = self._sueldo *0.04
+        salud = self.sueldo *0.04
         #este metodo quita los decimales
-        print(math.trunc(salud))
+        return(math.trunc(salud))
 
     def calculaPension(self):
-        pension = self._sueldo *0.04
+        pension = self.sueldo *0.04
         #este metodo quita los decimales
-        print(math.trunc(pension))
+        return(math.trunc(pension))
 
     def calculaSolidario(self):
-        solidario = self._sueldo *0.01
+        solidario = self.sueldo *0.01
         #este metodo quita los decimales
-        print(math.trunc(solidario))
+        return(math.trunc(solidario))
 
 
-    def totalSueldo(self,slmv):
-        if slmv >= (slmv*4):
-            ## todo Definir esta funcion de calculo de salario y revisar que los valores sean correctos. 
-
+    def totalSueldo(self,salud,pension,solidario):
+        if self.sueldo >= (SMLV*4):
+            tot = self.sueldo - (salud+pension+solidario)
+            return tot
+        else:
+            tot = self.sueldo - (salud + pension)
+            return tot
 
 ##################### TESTING ####################################
-salario = 100
+salario = 3000000
 
 parafisc = CalcSalario(salario)
 
@@ -45,12 +49,13 @@ salud = parafisc.calculaSalud()
 pension = parafisc.calculaPension()
 solidario = parafisc.calculaSolidario()
 
+deducido = parafisc.totalSueldo(salud,pension,solidario)
 
 
 print(salud)
 print(pension)
 print(solidario)
-
+print(deducido)
 
 
 
