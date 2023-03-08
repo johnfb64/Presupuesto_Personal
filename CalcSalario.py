@@ -1,5 +1,5 @@
 import math
-SMLV = 1300000
+SMLV = 1000000
 class CalcSalario:
 
     def __init__(self,sueldo):
@@ -34,28 +34,30 @@ class CalcSalario:
 
     def totalSueldo(self,salud,pension,solidario):
         if self.sueldo >= (SMLV*4):
-            tot = self.sueldo - (salud+pension+solidario)
+            tot = self.sueldo - (salud + pension + solidario)
             return tot
         else:
             tot = self.sueldo - (salud + pension)
             return tot
 
-##################### TESTING ####################################
-salario = 3000000
-
-parafisc = CalcSalario(salario)
-
-salud = parafisc.calculaSalud()
-pension = parafisc.calculaPension()
-solidario = parafisc.calculaSolidario()
-
-deducido = parafisc.totalSueldo(salud,pension,solidario)
-
-
-print(salud)
-print(pension)
-print(solidario)
-print(deducido)
+#########TESTING - SI NO SE DEJA COMENTARIADO DAÑA EL CODIGO, SOLO PARA TEST####################################
+# salario = 5000000
+#
+# parafisc = CalcSalario(salario)
+#
+# salud = parafisc.calculaSalud()
+# pension = parafisc.calculaPension()
+# solidario = parafisc.calculaSolidario()
+#
+# deducido = parafisc.totalSueldo()
+#
+#
+# print(salud)
+# print(pension)
+# print(solidario)
+# print(deducido)
+#
+# print("-------------------FINALIZA TESTING 1---------------------")
 
 
 
